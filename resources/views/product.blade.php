@@ -45,11 +45,7 @@
                 @endforeach
             </div>
 
-            <div class="row mt-5">
-                <div class="col-12 d-flex justify-content-center">
-                    {{ $products->links() }}
-                </div>
-            </div>
+
         </div>
     </div>
 @endsection

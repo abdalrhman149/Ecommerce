@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>Fruitkha - Slider Version</title>
+    <title>Flycart</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo1.png">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -33,7 +31,42 @@
     <!-- responsive -->
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
-    <!-- Scripts -->
+    <style>
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+        .language-switcher select {
+            padding: 8px 30px 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            color: #333;
+            font-size: 14px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .language-switcher::after {
+            content: "▼";
+            font-size: 10px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .language-switcher:hover select {
+            border-color: #aaa;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +80,7 @@
     <!--PreLoader Ends-->
 
     <!-- header -->
-    <div class="top-header-area"id="sticker">
+    <div class="top-header-area" id="sticker">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 text-center">
@@ -55,30 +88,20 @@
                         <!-- logo -->
                         <div class="site-logo">
                             <a href="/">
-                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                                <img src="{{ asset('assets/img/Elegant Bird Logo with Flycart Design.png') }}" width="500%" alt="">
                             </a>
                         </div>
                         <!-- logo -->
 
                         <!-- menu start -->
                         <nav class="main-menu">
-                            {{-- dir="rtl" --}}
                             <ul>
-                                <li class="current-list-item"><a href="/">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">Static Home</a></li>
-                                        <li><a href="index_2.html">Slider Home</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About</a></li>
+
+                                <li><a href="/about">About</a></li>
                                 <li><a href="{{ route('cats') }}">Categore</a></li>
-                                <li><a href="{{ route('prods') }}">product</a></li>
+                                <li><a href="{{ route('prods') }}">products</a></li>
                                 <li><a href="/addproduct">addproduct</a></li>
                                 <li><a href="/reviews">customer reviews</a></li>
-
-
-
-
 
                                 @guest
                                     @if (Route::has('login'))
@@ -114,24 +137,20 @@
                                 @endguest
 
 
-                                <li><a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="404.html">404 page</a></li>
-                                        <li><a href="/products">Products</a></li>
-                                        <li><a href="/categore">categore</a></li>
-                                        <li><a href="checkout.html">Check Out</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="news.html">News</a></li>
-                                        <li><a href="shop.html">Shop</a></li>
-                                    </ul>
-                                </li>
 
                                 <li>
                                     <div class="header-icons">
-                                        <a class="shopping-cart" href="/cart"><i
-                                                class="fas fa-shopping-cart"></i></a>
-                                        <a class="mobile-hide search-bar-icon" href="#"><i
-                                                class="fas fa-search"></i></a>
+                                        <a class="shopping-cart" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                                        <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                                        <div class="language-switcher">
+                                            <form action="{{ route('changeLanguage') }}" method="POST">
+                                                @csrf
+                                                <select name="locale" onchange="this.form.submit()">
+                                                    <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+                                                    <option value="ar" {{ app()->getLocale() == 'ar' ? 'selected' : '' }}>العربية</option>
+                                                </select>
+                                            </form>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -177,8 +196,8 @@
                     <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
-                                <p class="subtitle">Fresh & Organic</p>
-                                <h1>Delicious Seasonal Fruits</h1>
+                                <p class="subtitle">    {{ trans('string.wlecom_photo_info') }}</p>
+                                <h1> {{ trans('string.wlecom_photo_info2') }}</h1>
                                 <div class="hero-btns">
                                     <a href="shop.html" class="boxed-btn">Fruit Collection</a>
                                     <a href="contact.html" class="bordered-btn">Contact Us</a>
@@ -196,12 +215,9 @@
                     <div class="col-lg-10 offset-lg-1 text-center">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
-                                <p class="subtitle">Fresh Everyday</p>
-                                <h1>100% Organic Collection</h1>
-                                <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Visit Shop</a>
-                                    <a href="contact.html" class="bordered-btn">Contact Us</a>
-                                </div>
+                                <p class="subtitle"></p>
+                                <h1>{{ trans('string.info') }}</h1>
+
                             </div>
                         </div>
                     </div>
@@ -215,12 +231,8 @@
                     <div class="col-lg-10 offset-lg-1 text-right">
                         <div class="hero-text">
                             <div class="hero-text-tablecell">
-                                <p class="subtitle">Mega Sale Going On!</p>
-                                <h1>Get December Discount</h1>
-                                <div class="hero-btns">
-                                    <a href="shop.html" class="boxed-btn">Visit Shop</a>
-                                    <a href="contact.html" class="bordered-btn">Contact Us</a>
-                                </div>
+                                <h1>{{ trans('string.info2') }}</h1>
+
                             </div>
                         </div>
                     </div>
@@ -233,15 +245,7 @@
 
 
 
-{{ trans('string.welcom') }}
 
-<form action="{{ route('changeLanguage') }}" method="POST" >
-    @csrf
-    <select name="locale" onchange="this.form.submit()" >
-        <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
-        <option value="ar" {{ app()->getLocale() == 'ar' ? 'selected' : '' }}>عربي</option>
-    </select>
-</form>
     @yield('content')
 
 

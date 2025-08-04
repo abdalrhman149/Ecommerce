@@ -31,7 +31,7 @@
 						</div>
 						<h3> {{$item->name}}</h3>
 						<p class="product-price"><span>Price</span> {{$item->price}}$ </p>
-                    	<p class="product-price"><span>Quantity</span> {{$item->quantity}}$ </p>
+                    	<p class="product-price"><span>Quantity</span> {{$item->quantity}}</p>
 
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>

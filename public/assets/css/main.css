@@ -1,4 +1,11 @@
-/*Template Name: Fruitkha - Responsive Bootstrap4 Shop TemplateTemplate URI: Description: Bootstrap template for fruits or any other kind of shopAuthor: Imran HossainAuthor URI: https://imransdesign.com/Version: 1.0*/
+/*
+Template Name: Fruitkha - Responsive Bootstrap4 Shop Template
+Template URI:
+Description: Bootstrap template for fruits or any other kind of shop
+Author: Imran Hossain
+Author URI: https://imransdesign.com/
+Version: 1.0
+*/
 /* -----------------------------------------------------------------------------
 
 # Base - Genral & Typography
@@ -552,7 +559,9 @@ nav.main-menu ul li a {
   color: #fff;
   font-weight: 700;
   display: block;
-  padding: 15px;
+  padding: 12px;
+    font-size: 1.3vh !important;
+
 }
 
 nav.main-menu ul > li {
@@ -604,7 +613,7 @@ nav.main-menu > ul li:last-child {
 
 .site-logo {
   float: left;
-  max-width: 150px;
+  max-width: 250px;
 }
 
 ul.sub-menu li:last-child {
@@ -1461,19 +1470,22 @@ input[type="submit"] {
 }
 
 .homepage-bg-1 {
-  background-image: url(../img/hero-bg.jpg);
+  background-image: url(../img/josh-nuttall-pIwu5XNvXpk-unsplash.jpg);
+
 }
 
 .homepage-bg-2 {
-  background-image: url(../img/hero-bg-2.jpg);
+  background-image: url(../img/alexander-andrews-BX4Q0gojWAs-unsplash.jpg);
+
 }
 
 .homepage-bg-3 {
-  background-image: url(../img/hero-bg-3.jpg);
+  background-image: url(../img/maksim-larin-ezdrvzA1hZw-unsplash.jpg);
 }
 
 .homepage-slider {
-  height: 100%;
+  height: 60vh;
+  width: 100%; /* ثلث ارتفاع الشاشة */
 }
 
 .homepage-slider div {

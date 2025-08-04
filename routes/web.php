@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\TestController;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +28,9 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', function(){
+    return view('about');
+});
 
 
 Route::get('/', [CategoryController::class, 'MainPage']);
@@ -121,4 +125,5 @@ Route::get('/admin',function(){
 
     return"admin panel";
 })->middleware('checkrole:admin,salesman');
- 
+
+
